@@ -19,7 +19,7 @@ public class Main {
     System.out.println(findIndexElementSum(sum, A));
   }
 
-    static void outMas(int[] nums, int num, String s)
+    static void subset(int[] nums, int num, String s)
     {
       if (num == nums.length)
       {
@@ -28,16 +28,16 @@ public class Main {
         }
         return;
       }
-      outMas(nums,num+1,s);
+      subset(nums,num+1,s);
       s = s + nums[num] + ' ';
-      outMas(nums,num+1,s);
+      subset(nums,num+1,s);
     }
 
     public static Set<Integer> findIndexElementSum(int sum, int[] A) {
       if (A.length == 0) {
         return new HashSet<>();
       }
-        outMas(A,0,"");
+      subset(A,0,"");
         for (String numbers: Main.setNumbers) {
           String[] arrayNumbers = numbers.split(" ");
           int sumAll = Arrays.stream(arrayNumbers)
